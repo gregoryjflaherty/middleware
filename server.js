@@ -19,6 +19,7 @@ function loggingMiddleware(req, res, next) {
 
 function authorizeUsersAcess(req, res, next) {
     if (req.query.admin === 'true') {
+        req.admin = true
         next()
     } else {
         res.send('ERROR: You must be an admin')
